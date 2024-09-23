@@ -25,4 +25,6 @@ int main()
     int Count = StringCount("BBBB");
 
     int a = 0;
+
+    return 0;
 }
