@@ -30,7 +30,6 @@ int MyPrintf(const char* const _Ptr, ...)
     __int64 FAdd = reinterpret_cast<__int64>(&_Ptr);
 
     int ChCount = 0;
-   // int ArgCount = 1;
 
     while (_Ptr[ChCount])
     {
@@ -44,7 +43,7 @@ int MyPrintf(const char* const _Ptr, ...)
             {
             case 'd':
             {
-                int* Ptr = reinterpret_cast<int*>(FAdd + ParameterInter/**ArgCount*/);
+                int* Ptr = reinterpret_cast<int*>(FAdd + ParameterInter);
                 int ConvertValue = *Ptr;
                 char Arr[IntMaxCount] = {};
                 NumberToString(Arr, IntMaxCount, ConvertValue);
@@ -58,7 +57,6 @@ int MyPrintf(const char* const _Ptr, ...)
             default:
                 break;
             }
-            //ArgCount++;
             ChCount += 2;
         }
 
@@ -72,7 +70,7 @@ int main()
 {
     // MyPrintf("AA BB CC");
 
-    MyPrintf("Number : %d %d\n", 1231, 2345);
+    MyPrintf("Number : %d\n", 1231);
 
     return 0;
 }
