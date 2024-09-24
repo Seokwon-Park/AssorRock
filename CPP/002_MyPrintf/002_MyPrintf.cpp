@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <cstdarg>
 
 const int IntMaxCount = 10;
 const int ParameterInter = 8;
@@ -29,6 +30,8 @@ int MyPrintf(const char* const _Ptr, ...)
 {
     __int64 FAdd = reinterpret_cast<__int64>(&_Ptr);
 
+    va_list args;
+    va_start(args, _Ptr);
     int ChCount = 0;
 
     while (_Ptr[ChCount])
@@ -44,7 +47,8 @@ int MyPrintf(const char* const _Ptr, ...)
             case 'd':
             {
                 int* Ptr = reinterpret_cast<int*>(FAdd + ParameterInter);
-                int ConvertValue = *Ptr;
+                //int ConvertValue = *Ptr;
+                int ConvertValue = va_arg(args, int);
                 char Arr[IntMaxCount] = {};
                 NumberToString(Arr, IntMaxCount, ConvertValue);
                 MyPrintf(Arr);
@@ -63,6 +67,7 @@ int MyPrintf(const char* const _Ptr, ...)
         putchar(_Ptr[ChCount]);
         ChCount++;
     }
+    va_end(args);
     return ChCount;
 }
 
