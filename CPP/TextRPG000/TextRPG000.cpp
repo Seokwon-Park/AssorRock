@@ -1,7 +1,8 @@
 ﻿#include <iostream>
+#include <conio.h>
 
 const int LINECOUNT = 50;
-const int NAMELEN = 10;
+const int NAMELEN = 20;
 // Player
 int PlayerAtt = 10;
 int PlayerHp = 0;
@@ -66,14 +67,54 @@ void MonsterStatusRender()
 	StatusRender(MonsterName, MonsterAtt, MonsterHp);
 }
 
+void DamageRender(const char* const _AttName, const char* const _DefName, int _Att)
+{
+	printf_s("%s가 %s를 공격해서 %d의 데미지를 입혔습니다.\n", _AttName, _DefName, _Att);
+}
+
+void TakeDamage(int& _DefHp, int _Att)
+{
+	_DefHp -= _Att;
+}
+
+void Damage(const char* const _AttName, const char* const _DefName, int& _DefHp, int _Att)
+{
+	TakeDamage(_DefHp, _Att);
+	DamageRender(_AttName, _DefName, _Att);
+}
 
 int main()
 {
 	CreatePlayer("TestPlayer", 10,100 );
 	CreateMonster("Orc", 10,50 );
 
-	PlayerStatusRender();
-	MonsterStatusRender();
+
+	while (true)
+	{
+		system("cls");
+		char Input= ' ';
+
+		PlayerStatusRender();
+		MonsterStatusRender();
+
+		Input = _getch();
+		system("cls");
+		TakeDamage(MonsterHp, PlayerAtt);
+		PlayerStatusRender();
+		MonsterStatusRender();
+		DamageRender(PlayerName, MonsterName, PlayerAtt);
+		
+		Input = _getch();
+		system("cls");
+		TakeDamage(PlayerHp, MonsterAtt );
+		PlayerStatusRender();
+		MonsterStatusRender();
+		DamageRender(PlayerName, MonsterName, PlayerAtt);
+		DamageRender(MonsterName, PlayerName, MonsterAtt);
+		Input = _getch();
+	}
+
+
 
 	return 0;
 }
