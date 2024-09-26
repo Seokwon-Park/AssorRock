@@ -46,7 +46,7 @@ int MyPrintf(const char* const _Ptr, ...)
             {
             case 'd':
             {
-                int* Ptr = reinterpret_cast<int*>(FAdd + ParameterInter);
+                //int* Ptr = reinterpret_cast<int*>(FAdd += ParameterInter);
                 //int ConvertValue = *Ptr;
                 int ConvertValue = va_arg(args, int);
                 char Arr[IntMaxCount] = {};
@@ -75,7 +75,7 @@ int main()
 {
     // MyPrintf("AA BB CC");
 
-    MyPrintf("Number : %d\n", 1231);
+    MyPrintf("Number : %d %d\n", 1231, 3333);
 
     return 0;
 }

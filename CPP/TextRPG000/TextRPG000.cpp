@@ -123,6 +123,14 @@ int main()
 		int RandomMonsterSpeed = GenSpeed(gen, monster);
 		bool isPlayerFirst = RandomPlayerSpeed > RandomMonsterSpeed;
 
+		if (isPlayerFirst)
+		{
+			SpeedCheckRender(PlayerName);
+		}
+		else
+		{
+			SpeedCheckRender(MonsterName);
+		}
 		Input = _getch();
 		system("cls");
 		if (isPlayerFirst) // 플레이어 선공
