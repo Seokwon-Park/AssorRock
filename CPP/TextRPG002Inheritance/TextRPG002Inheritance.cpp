@@ -109,19 +109,6 @@ public:
 		:FightUnit(_name, _hp, _minAtt, _maxAtt, _speed) {}
 };
 
-class BattleField
-{
-public:
-	/*void PlayerIn(Player* _player)
-	{
-		player = _player;
-	}*/
-private:
-	std::string log;
-	Player* player;
-	Monster* monster;
-};
-
 int main()
 {
 	srand(time(0));
