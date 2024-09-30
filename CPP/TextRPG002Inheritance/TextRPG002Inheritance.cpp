@@ -62,16 +62,14 @@ public:
 		return MinAtt + rand() % (MaxAtt - MinAtt + 1);
 	}
 
-	void TakeDamage(const FightUnit& _AttUnit)
+	void TakeDamage(int _Damage)
 	{
-		int Damage = _AttUnit.GetDamage();
-		Hp -= Damage;
-		LastDamage = Damage;
+		Hp -= _Damage;
 	}
 
-	void DamageRender(const FightUnit& _AttUnit)const
+	void DamageRender(const FightUnit& _AttUnit, int _Damage)const
 	{
-		printf_s("%s 가 %s를 공격해서 %d의 데미지를 입혔습니다.\n", _AttUnit.Name, Name, LastDamage);
+		printf_s("%s 가 %s를 공격해서 %d의 데미지를 입혔습니다.\n", _AttUnit.Name, Name, _Damage);
 	}
 
 	const char* GetName() const
@@ -80,7 +78,6 @@ public:
 	}
 
 protected:
-	int LastDamage; // 마지막으로 입은 피해량
 
 private:
 };
@@ -125,10 +122,11 @@ int main()
 
 		ch = _getch();
 		system("cls");
-		NewMonster.TakeDamage(NewPlayer);
+		int PlayerDamage = NewPlayer.GetDamage();
+		NewMonster.TakeDamage(PlayerDamage);
 		NewPlayer.StatusRender();
 		NewMonster.StatusRender();
-		NewMonster.DamageRender(NewPlayer);
+		NewMonster.DamageRender(NewPlayer, PlayerDamage);
 		ch = _getch();
 
 	}
