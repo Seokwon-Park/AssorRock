@@ -1,5 +1,6 @@
 #pragma once
 #include "StatusUnit.h"
+#include "Player.h"
 
 
 // 귀찮음이 있으면 큰일 납니다.
@@ -7,5 +8,6 @@ class UZone : public UStatusUnit
 {
 public:
 	void InMsgPrint();
+	virtual int InPlayer(class UPlayer& _Player);
 
 };

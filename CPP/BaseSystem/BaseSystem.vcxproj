@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{67658597-b0c1-42af-aa16-4cf5a03312e3}</ProjectGuid>
-    <RootNamespace>TextRPG003ClassFile</RootNamespace>
+    <ProjectGuid>{25af79c0-4715-435a-bdeb-a5129f18a68d}</ProjectGuid>
+    <RootNamespace>BaseSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -104,7 +104,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,36 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EngineConst.cpp" />
-    <ClCompile Include="FightUnit.cpp" />
-    <ClCompile Include="FightZone.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Monster.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="StatusUnit.cpp" />
-    <ClCompile Include="TextRPG003ClassFile.cpp" />
-    <ClCompile Include="Town.cpp" />
-    <ClCompile Include="World.cpp" />
-    <ClCompile Include="Zone.cpp" />
+    <ClCompile Include="EngineDebug.cpp" />
+    <ClCompile Include="EngineFile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineConst.h" />
-    <ClInclude Include="FightUnit.h" />
-    <ClInclude Include="FightZone.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="Monster.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="StatusUnit.h" />
-    <ClInclude Include="Town.h" />
-    <ClInclude Include="World.h" />
-    <ClInclude Include="Zone.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaseSystem\BaseSystem.vcxproj">
-      <Project>{25af79c0-4715-435a-bdeb-a5129f18a68d}</Project>
-    </ProjectReference>
+    <ClInclude Include="EngineDebug.h" />
+    <ClInclude Include="EngineFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

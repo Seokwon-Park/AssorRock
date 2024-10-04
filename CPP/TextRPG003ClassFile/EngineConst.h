@@ -13,4 +13,11 @@
 const int LINECOUNT = 50;
 const int NAMELEN = 20;
 
+enum TownIndex
+{
+	chobo,
+	middle,
+	fight
+};
+
 // }

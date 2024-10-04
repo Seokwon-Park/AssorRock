@@ -1,9 +1,10 @@
 #include "Town.h"
 #include <conio.h>
 #include "Player.h"
+#include "EngineConst.h"
 
 // 포인터나 레퍼런스는 무조건 8바이트 이기 때문에
-void UTown::InPlayer(class UPlayer& _Player)
+int UTown::InPlayer(class UPlayer& _Player)
 {
 	InMsgPrint();
 
@@ -15,6 +16,7 @@ void UTown::InPlayer(class UPlayer& _Player)
 		std::cout << "0. 체력회복\n";
 		std::cout << "1. 강화\n";
 		std::cout << "2. 사냥터이동\n";
+		std::cout << "3. 중급마을로 이동\n";
 		int Select = _getch();
 
 		switch (Select)
@@ -28,9 +30,18 @@ void UTown::InPlayer(class UPlayer& _Player)
 			_getch();
 			break;
 		case '2':
+		{
 			printf_s("2눌렀습니다.");
 			_getch();
+			return TownIndex::fight;
 			break;
+		}
+		case '3':
+		{
+			printf_s("3눌렀습니다.");
+			_getch();
+			return TownIndex::middle;
+		}
 		default:
 			break;
 		}

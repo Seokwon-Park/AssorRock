@@ -5,7 +5,7 @@
 class UFightZone : public UZone
 {
 public:
-	void InPlayer(class UPlayer& _Player);
+	virtual int InPlayer(class UPlayer& _Player);
 
 private:
 };
