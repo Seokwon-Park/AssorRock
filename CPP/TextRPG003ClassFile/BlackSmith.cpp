@@ -61,7 +61,7 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	std::cout << "======================= 강 화 =======================\n\n";
 
 
-	std::cout << UpgradeCost << "골드를 사용하여 강화를 시도합니다...\n";
+	std::cout << UpgradeCost << "골드를 사용하여 +" << CurUpgrade << " -> +" << CurUpgrade+1 << "로 강화를 시도합니다...\n";
 	
 	//돈이 부족한 경우
 	if (CurGold < UpgradeCost)
@@ -81,27 +81,36 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 
 	// int Result = 1; 
 	int Result = rand() % 2;
-	if (Result > 0) // 0 : 실패 1 : 성공
+	int UpgradeResult = CurUpgrade;
+	//50%
+	if (0 < Result ) // 0 : 실패 1 : 성공 
 	{
 		std::cout << "강화에 성공했습니다!!!\n\n";
-		_Player.SetEquipUpgrade(CurUpgrade + 1);
+		UpgradeResult = CurUpgrade + 1;
+		_Player.SetEquipUpgrade(UpgradeResult);
 		std::cout << "강화 수치가 1 증가했습니다.\n";
 	}
 	else
 	{
 		std::cout << "강화에 실패했습니다...\n\n";
-		if (5 <= CurUpgrade) // 5->6부터는 실패하면 1깎
+		if (10 <= CurUpgrade) // 10->11 부터는 실패하면 0
 		{
+			UpgradeResult = 0;
+			_Player.SetEquipUpgrade(UpgradeResult);
+			std::cout << "강화 수치가 0으로 초기화 되었습니다. ㅠㅠ\n";
+		}
+		else if (5 <= CurUpgrade) // 10보다 작고 5->6부터는 실패하면 1깎
+		{
+			UpgradeResult = CurUpgrade -1 ;
 			_Player.SetEquipUpgrade(CurUpgrade - 1);
 			std::cout << "강화 수치가 1 감소했습니다.\n";
 			
 		}
-		else if(10<= CurUpgrade) // 10->11 부터는 실패하면 0
-		{
-			_Player.SetEquipUpgrade(0);
-			std::cout << "강화 수치가 0으로 초기화 되었습니다. ㅠㅠ\n";
-		}
+		
 	}
+
+	std::cout << "강화 결과 : +" << CurUpgrade << " -> +" << UpgradeResult << '\n';
+	std::cout << "골드 : " << CurGold << " -> " << _Player.GetGold() << '\n';
 
 	std::cout << '\n';
 	_Player.StatusRender();
