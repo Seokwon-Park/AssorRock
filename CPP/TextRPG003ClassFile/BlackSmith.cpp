@@ -55,13 +55,13 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	// 10~15는 0으로 실패하면 0으로 떨어진다.
 	// 15강 이상이면 강화를 못하게 해야해한다.
 	int CurGold = _Player.GetGold();
-	int CurUpgrade = _Player.GetEquipUpgrade();
+	int CurUpgrade = _Player.GetEquipAtt();
 	int UpgradeCost = (CurUpgrade+1) * 100;
 	
 	std::cout << "======================= 강 화 =======================\n\n";
 
 
-	std::cout << UpgradeCost << "골드를 사용하여 +" << CurUpgrade << " -> +" << CurUpgrade+1 << "로 강화를 시도합니다...\n";
+	std::cout << UpgradeCost << "골드를 사용하여 +" << CurUpgrade << " -> +" << CurUpgrade+1 << " 강화를 시도합니다...\n";
 	
 	//돈이 부족한 경우
 	if (CurGold < UpgradeCost)
@@ -87,7 +87,7 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	{
 		std::cout << "강화에 성공했습니다!!!\n\n";
 		UpgradeResult = CurUpgrade + 1;
-		_Player.SetEquipUpgrade(UpgradeResult);
+		_Player.SetEquipAtt(UpgradeResult);
 		std::cout << "강화 수치가 1 증가했습니다.\n";
 	}
 	else
@@ -96,13 +96,13 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 		if (10 <= CurUpgrade) // 10->11 부터는 실패하면 0
 		{
 			UpgradeResult = 0;
-			_Player.SetEquipUpgrade(UpgradeResult);
+			_Player.SetEquipAtt(UpgradeResult);
 			std::cout << "강화 수치가 0으로 초기화 되었습니다. ㅠㅠ\n";
 		}
 		else if (5 <= CurUpgrade) // 10보다 작고 5->6부터는 실패하면 1깎
 		{
 			UpgradeResult = CurUpgrade -1 ;
-			_Player.SetEquipUpgrade(CurUpgrade - 1);
+			_Player.SetEquipAtt(CurUpgrade - 1);
 			std::cout << "강화 수치가 1 감소했습니다.\n";
 			
 		}
@@ -115,5 +115,5 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	std::cout << '\n';
 	_Player.StatusRender();
 
-	std::cout << "아무키나 누르면 강화 화면으로 돌아갑니다...\n";
+	std::cout << "아무키나 누르면 대장간으로 돌아갑니다...\n";
 }

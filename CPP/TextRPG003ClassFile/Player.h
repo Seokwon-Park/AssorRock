@@ -72,14 +72,14 @@ public:
 		return CurZoneIndex;
 	}
 
-	int GetEquipUpgrade() 
+	int GetEquipAtt() 
 	{
-		return EquipUpgrade;
+		return EquipAtt;
 	}
 
-	void SetEquipUpgrade(int _Value)
+	void SetEquipAtt(int _Value)
 	{
-		EquipUpgrade = _Value;
+		EquipAtt = _Value;
 	}
 
 protected:
@@ -89,6 +89,5 @@ private:
 	class Item* Weapon = nullptr;
 	int CurZoneIndex = 0;
 	int EquipAtt = 0;
-	int EquipUpgrade = 0;
 };
 

@@ -17,7 +17,6 @@ void UPlayer::StatusTextPrint()
     printf_s("공격력 : %d ~ %d + %d\n", MinAtt, MaxAtt, EquipAtt);
     printf_s("체력 : %d\n", Hp);
     printf_s("골드 : %d\n", Gold);
-    printf_s("무기 강화 : +%d\n", EquipUpgrade);
 }
 
 // 맴버함수를 구현할대는 이러면 그냥 전역함수다.
