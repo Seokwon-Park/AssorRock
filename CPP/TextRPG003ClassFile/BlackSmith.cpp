@@ -9,7 +9,7 @@
 
 void BlackSmith::InPlayer(class UPlayer& _Player/*, int& Result*/)
 {
-	
+
 	if (nullptr == ParentZone)
 	{
 		MSGASSERT("부모존이 세팅되지 않았습니다");
@@ -56,26 +56,26 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	// 15강 이상이면 강화를 못하게 해야해한다.
 	int CurGold = _Player.GetGold();
 	int CurUpgrade = _Player.GetEquipAtt();
-	int UpgradeCost = (CurUpgrade+1) * 100;
-	
+	int UpgradeCost = (CurUpgrade + 1) * 100;
+
 	std::cout << "======================= 강 화 =======================\n\n";
-
-
-	std::cout << UpgradeCost << "골드를 사용하여 +" << CurUpgrade << " -> +" << CurUpgrade+1 << " 강화를 시도합니다...\n";
-	
-	//돈이 부족한 경우
-	if (CurGold < UpgradeCost)
-	{
-		std::cout << "강화 비용이 부족합니다.\n";
-		return;
-	}
 
 	//15강 이상인 경우
 	if (15 == CurUpgrade)
 	{
-		std::cout << "더 이상 강화할 수 없습니다.\n";
+		std::cout << "최대 강화수치에 도달해 더 이상 강화할 수 없습니다.\n";
 		return;
 	}
+
+	std::cout << UpgradeCost << "골드를 사용하여 +" << CurUpgrade << " -> +" << CurUpgrade + 1 << " 강화를 시도합니다...\n";
+
+	//돈이 부족한 경우
+	if (CurGold < UpgradeCost)
+	{
+		std::cout << "강화 비용이 부족합니다. ㅂㅂ\n";
+		return;
+	}
+
 	_Player.SetGold(CurGold - UpgradeCost);
 	// 강화로직
 
@@ -83,7 +83,7 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	int Result = rand() % 2;
 	int UpgradeResult = CurUpgrade;
 	//50%
-	if (0 < Result ) // 0 : 실패 1 : 성공 
+	if (0 < Result) // 0 : 실패 1 : 성공 
 	{
 		std::cout << "강화에 성공했습니다!!!\n\n";
 		UpgradeResult = CurUpgrade + 1;
@@ -101,12 +101,12 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 		}
 		else if (5 <= CurUpgrade) // 10보다 작고 5->6부터는 실패하면 1깎
 		{
-			UpgradeResult = CurUpgrade -1 ;
+			UpgradeResult = CurUpgrade - 1;
 			_Player.SetEquipAtt(CurUpgrade - 1);
 			std::cout << "강화 수치가 1 감소했습니다.\n";
-			
+
 		}
-		
+
 	}
 
 	std::cout << "강화 결과 : +" << CurUpgrade << " -> +" << UpgradeResult << '\n';
