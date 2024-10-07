@@ -110,7 +110,7 @@ void BlackSmith::TryUpgrade(class UPlayer& _Player)
 	}
 
 	std::cout << "°­È­ °á°ú : +" << CurUpgrade << " -> +" << UpgradeResult << '\n';
-	std::cout << "°ñµå : " << CurGold << " -> " << _Player.GetGold() << '\n';
+	std::cout << "¼ÒÁö °ñµå : " << CurGold << " -> " << _Player.GetGold() << '\n';
 
 	std::cout << '\n';
 	_Player.StatusRender();
