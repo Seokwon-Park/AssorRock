@@ -30,9 +30,9 @@ bool UZone::InterConnecting(UZone* _LinkZone)
 	// 기본이 저한테 기본입니다.
 	// 무식하게 짜세요.
 	// 
-	// 디버깅
-	std::cout << _LinkZone << '\n';
-	std::cout << this;
+	//// 디버깅
+	//std::cout << _LinkZone << '\n';
+	//std::cout << this;
 
 	return true;
 }
