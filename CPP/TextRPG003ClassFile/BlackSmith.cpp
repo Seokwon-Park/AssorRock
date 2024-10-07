@@ -24,7 +24,7 @@ void BlackSmith::InPlayer(class UPlayer& _Player/*, int& Result*/)
 	while (true)
 	{
 		system("cls");
-		std::cout << ParentZone->GetName() << "의 대장간에 입장했습니다\n";
+		std::cout << ParentZone->GetName() << "의 대장간\n";
 		_Player.StatusRender();
 		std::cout << "1. 강화\n";
 		std::cout << "2. 나간다\n";
