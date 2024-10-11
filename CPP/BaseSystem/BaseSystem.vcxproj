@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="EngineDebug.cpp" />
     <ClCompile Include="EngineFile.cpp" />
+    <ClCompile Include="EngineMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineDebug.h" />
     <ClInclude Include="EngineFile.h" />
+    <ClInclude Include="EngineMath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

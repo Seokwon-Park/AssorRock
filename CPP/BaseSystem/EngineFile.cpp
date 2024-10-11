@@ -29,6 +29,7 @@ void UEngineFile::FileOpen(const char* _Mode)
 	}
 }
 
+
 void UEngineFile::Write(const void* _Ptr, size_t _Size)
 {
 	if (0 == _Size)
@@ -47,7 +48,7 @@ void UEngineFile::Write(const void* _Ptr, size_t _Size)
 		MSGASSERT("열지 않은 파일에 내용을 쓰려고 했습니다");
 		return;
 	}
-	
+
 	fwrite(_Ptr, _Size, 1, File);
 }
 
@@ -75,8 +76,10 @@ void UEngineFile::Read(void* _Ptr, size_t _Size)
 // 인라인은 구현과 선언을분리하면 인라인을 하기 힘듭니다.
 bool UEngineFile::IsExits()
 {
+	int Result = _access(Path, 00);
+
 	// 0이면 있는것 0 이외의 값이면 없는 것
-	return 0 == _access(Path, 00);
+	return 0 == Result;
 }
 
 

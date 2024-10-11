@@ -9,6 +9,7 @@
 // API 랜더링 구조의 예비 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	// 프레임 구조가 기반이 됩니다.
 	// 프레임 구조가 뭐냐?
@@ -37,4 +38,5 @@ int main()
 
 	ConsoleEngine::Start();
 
+	return 0;
 }
