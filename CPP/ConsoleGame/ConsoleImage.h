@@ -58,11 +58,6 @@ public:
 		return Y;
 	}
 
-	inline FIntPoint GetSize()
-	{
-		return { X, Y };
-	}
-
 	void Copy(FIntPoint _Offset, ConsoleImage& _Image);
 
 	void SetPixel(FIntPoint _Pos, char _Char);

@@ -9,6 +9,7 @@ class UConsoleWindow
 public:
 	UConsoleWindow();
 
+
 	// 초미니 컴퓨터가 있다고 생각하자.
 
 	// "****************"0

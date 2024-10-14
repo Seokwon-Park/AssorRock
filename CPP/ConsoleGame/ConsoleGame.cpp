@@ -38,5 +38,4 @@ int main()
 
 	ConsoleEngine::Start();
 
-	return 0;
 }
