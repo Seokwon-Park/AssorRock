@@ -23,6 +23,12 @@ void AActor::Render(ConsoleImage* _BackBuffer)
 	{
 		return;
 	}
+
+	if (false == ImageRenderer->Active)
+	{
+		return;
+	}
+
 	_BackBuffer->Copy(Pos, ImageRenderer->RenderImage);
 }
 

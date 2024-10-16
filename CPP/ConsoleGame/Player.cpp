@@ -3,12 +3,21 @@
 #include "Enums.h"
 #include "GlobalValue.h"
 #include "ConsoleEngine.h"
+#include "Renderer.h"
+
+Player* Player::MainPlayer = nullptr;
 
 void Player::BeginPlay()
 {
+	MainPlayer = this;
+
 	Super::BeginPlay();
 
-	RenderImage.Create({1, 1}, '@');
+	Renderer* Render = CreateDefaultSubObject();
+	Render->RenderImage.Create({ 1, 1 }, '@');
+
+	// 1. 적당히 아래 위치에 놓아달라.
+	SetActorLocation({ 10, 8 });
 }
 
 void Player::Tick()
@@ -62,7 +71,16 @@ void Player::Tick()
 
 			// 1. 총알이 플레이어 위치에 나오게 만드세요
 			// 2. 총알이 위쪽으로 올라가게 만드세요.
-			NewBullet->SetActorLocation(Super::GetActorLocation());
+			NewBullet->SetActorLocation(this->GetActorLocation());
+
+			// 관리하는자가 누구냐?
+			// 지금 엔진의 AllActorVector 에서 가지고 있다.
+			// 플레이어를 만든 컨텐츠 프로그래머가 BulletVector를 만들고 여기에도 넣어놨다.
+			// 
+			// 플레이어가 총알을 매니지먼트 
+			BulletVector.push_back(NewBullet);
+			// delete NewBullet;
+
 			break;
 		}
 		default:

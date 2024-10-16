@@ -7,7 +7,7 @@ class ActorVector
 {
     // 헤더 CPP 분할을 하지 않겠습니다.
 public:
-    int size()
+    int size() const
     {
         return DataSize;
     }

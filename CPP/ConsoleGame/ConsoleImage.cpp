@@ -64,6 +64,25 @@ void ConsoleImage::SetPixel(FIntPoint _Pos, char _Char)
 	Arr[_Pos.Y][_Pos.X] = _Char;
 }
 
+void ConsoleImage::Copy(FIntPoint _Offset, ConsoleImage& _Image, char _BaseChar)
+{
+	for (int y = 0; y < _Image.GetImageSizeY(); y++)
+	{
+		for (int x = 0; x < _Image.GetImageSizeX(); x++)
+		{
+			if (_Image.GetPixel(x, y) != _BaseChar)
+			{
+				FIntPoint SetPos = _Offset + FIntPoint{ x, y };
+
+				char X = _Image.GetPixel(x, y);
+
+				SetPixel(SetPos, X);
+			}
+		}
+	}
+}
+
+
 void ConsoleImage::Copy(FIntPoint _Offset, ConsoleImage& _Image)
 {
 	// 2Â÷¿ø
