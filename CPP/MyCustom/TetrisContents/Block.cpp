@@ -86,7 +86,7 @@ void Block::Tick()
 
 	// ¤·¤·
 	counter++;
-	if (counter > 1)
+	if (counter > 0)
 	{
 		AddActorLocation(FIntPoint::DOWN);
 		counter = 0;

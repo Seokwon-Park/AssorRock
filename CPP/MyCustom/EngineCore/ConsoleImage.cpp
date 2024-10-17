@@ -78,7 +78,7 @@ void ConsoleImage::SetPixel(FIntPoint _Pos, char _Char)
 		return;
 	}
 
-	Pixels[_Pos.Y][_Pos.X] = _Char;
+	Pixels[_Pos.Y][_Pos.X] = _Char; 
 }
 
 void ConsoleImage::Rotate()
